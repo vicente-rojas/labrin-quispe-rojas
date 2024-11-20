@@ -92,7 +92,7 @@ from src.retrievers.retriever import Retriever
 
 # # Tiempo paso 4 y 5 ~ 5 min
 
-# Paso 6: Consulta Sobre el Vector Data Base
+# Paso 6: Consulta Sobre el Vector Data Base (Consulta en el main)
 
 # # Inicializar DenseEmbeddings para consultas
 # embedding_generator = DenseEmbeddings(model_name="sentence-transformers/all-mpnet-base-v2")
@@ -130,3 +130,7 @@ results = retriever.search(query, top_k=5)
 print("Resultados de búsqueda:")
 for res in results:
     print(f"Score: {res['score']}, Metadata: {res['payload']}")
+
+
+
+
