@@ -1,0 +1,168 @@
+1.- El siguiente conjunto de datos contiene información de personas; se registra su talla de polera, altura en centímetros y peso en kilogramos. ¿Cuál de los siguientes tipos de datos es más correcto con respecto a la columna peso?
+a.
+Atributo nominal
+
+b.
+Atributo categórico
+
+c.
+Atributo ordenado cuantitativo secuencial
+
+d.
+Atributo ordenado cuantitativo cíclico
+
+----------
+
+2.- ¿Cuál es la diferencia entre atributo cuantitativos y ordinales?
+
+a.
+Los ordinales son categorías que NO se pueden ordenar y los cuantitativos son datos que podemos aplicar operaciones matemáticas.
+
+b.
+Los ordinales son categorías que se pueden ordenar y los cuantitativos son datos que podemos aplicar operaciones matemáticas.
+
+c.
+Los ordinales son categorías que se pueden ordenar y los cuantitativos son datos que NO podemos aplicar operaciones matemáticas.
+
+d.
+No hay diferencia entre estos 2 atributos.
+
+------------
+3.- El siguiente conjunto de datos contiene información de personas; se registra su talla de polera, altura en centímetros y peso en kilogramos. ¿Qué tipo de dato representa una fila? 
+
+No considere la fila con los nombres de las columnas.
+
+a.
+Cluster
+
+b.
+Ítem
+
+c.
+Vínculo
+
+d.
+Atributo
+
+-------------
+5.- Grafico
+
+
+
+--------------
+Respecto al nivel "query" de las acciones, ¿Cuál alternativa es incorrecta?
+
+
+
+---
+
+La siguiente visualización no interactiva muestra la cantidad de inmigrantes que llegaron por país.
+
+¿Cuál de las siguientes alternativas conecta incorrectamente la nueva interactividad a proponer con el concepto principal del HOW?
+
+
+a.
+Navigate - Dar la opción que el usuario escoga si las barras codifican la cantidad de inmigrantes o la cantidad de emigrantes de cada páis.
+
+b.
+Filter - Poder hacer click en una barra y solo mostrar las barras cuyo continente sea el mismo que la barra seleccionada. Por ejemplo, hacer click en Canada y solo mantener las barras de los paises de América.
+
+c.
+Embed - Permitir hacer click en una barra y mostrar información específica del país asociado a la barra presionada.
+
+d.
+Change - Dar la opción de ordenar las barras de la más grande a la más pequeña y ordenarlas alfabéticamente según el país de cada barra.
+
+
+
+----
+
+La siguiente visualización (https://www.decidechile.cl/articulos-blog/losdatoshablan-cmo-se-dio-el-minuto-a-minuto-en-las-elecciones-presidenciales-pasadas) corresponde al porcentaje de votos durante la primera vuelta de las elecciones presidenciales de Chile 2021. Este gráfico de múltiples líneas presenta la posibilidad de pasar el cursor sobre un candidato o clickear el mismo y así resaltar su información.Además permite seleccionar un instante de tiempo y mostrar únicamente la información hasta dicho instante.
+En relación a las siguientes afirmaciones ¿Cuál de las afirmaciones son correctas?
+ Una acción de alto nivel corresponde a consumir información (presentar). 
+Algunos pares de acción-objetivo de esta visualización son: identificar-tendencias y comparar-caminos.
+Algunos aspectos del HOW presentes en la visualización son reduce (filtro) y select (resaltar uno o más datos). 
+Para un usuario que no conoce a ninguno de los candidato, encontrar aquel con la menor cantidad de votos al final del día sería una busqueda del tipo Browse (navegar).
+Pregunta 9Respuesta
+a.
+Todas las afirmaciones son correctas.
+
+b.
+Únicamente las afirmaciones II y IV son correctas.
+
+c.
+Únicamente las afirmaciones I y III son correctas.
+
+d.
+Únicamente las afirmaciones I, III y IV son correctas.
+
+
+----
+
+La siguiente visualización no interactiva muestra la variación del rendimiento y de la función de pérdida de un modelo de deep learning a medida que pasan las épocas. En cada gráfico se muestra una métrica con el conjunto de datos de entrenamiento y de validación.
+
+¿Cuál de las siguientes alternativas es incorrecta?
+
+
+a.
+Este gráfico es óptimo para comparar la tendencia de las métrica (acurracy o loss) entre el conjunto de entrenamiento (training) y validación (validation).
+
+b.
+Se aprecia una decisión de yuxtaposición al momento de visualizar la información con los datos de entrenamiento (traning) y validación (validation) al mismo tiempo en un gráfico.
+
+c.
+Se aprecia una decisión de superposición al momento de visualizar el error y el rendimiento (acurracy) en 2 visualizaciones distintas.
+
+d.
+Este gráfico es óptimo para comparar con exactitud los valores en 2 épocas distintas.
+
+----
+
+Un día en la vida de los estadounidenses.
+
+La siguiente visualización presenta cómo distribuye las actividades que pueden realizar diferentes estadounidense durante el tiempo en un día. 
+
+A continuación se presenta un gif de la visualización, pero se recomienda interactuar con esta para responder las preguntas de este caso.
+
+¿Cuál de las siguientes afirmaciones es correcta respecto a las marcas utilizadas en esta visualización?
+
+
+a.
+Se incluye una marca de enlace para identificar el cambio de una actividad a otra
+
+b.
+Se utiliza una marca cero-dimensional (punto) para representar cada a las personas
+
+c.
+Se utiliza una marca bi-dimensional (área) para representar cada a las personas
+
+d.
+Esta visualización utiliza glifos para representar cada actividad
+
+
+
+------
+
+El siguiente dashboard compuesto por 3 visualizaciones permite caracterizar el clima que hubo en Seattle entre el 2012 y 2015. 
+
+El primer gráfico presenta la cantidad de días según el clima que hubo.
+El segundo gráfico presenta la velocidad promedio del viento según el clima.
+El último gráfico presenta presenta la temperatura máxima por día en cada fecha posible. Además permite identificar el clima y cantidad de precipitaciones para cada día.
+ 
+
+A continuación se presenta un gif de la visualización, pero se recomienda interactuar con esta para responder las preguntas de este caso.
+
+
+Respecto a las decisiones de diseño referente a la manipulación de las visualizaciones ¿Cuál afirmación son correctas?
+
+a.
+El gráfico de burbuja permite únicamente panning
+
+b.
+Todos los gráficos permiten navegación
+
+c.
+Hay uno o más gráficos del dashboard que son totalmente estáticos
+
+d.
+Interactuar con el gráfico de barra permite alterar algún canal utilizado en alguna de las visualizaciones
