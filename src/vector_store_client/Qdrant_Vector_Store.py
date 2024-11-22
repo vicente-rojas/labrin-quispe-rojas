@@ -12,26 +12,15 @@ class QdrantVectorStore:
     def __init__(self, embedding_model, collection_name="demo_collection", vector_size=768, 
                  distance=Distance.COSINE, qdrant_path="/tmp/langchain_qdrant", overwrite=False):
         """
-        Inicializa el vector store en Qdrant.
-
-        Args:
-            embedding_model (HuggingFaceEmbeddings): Modelo para generar embeddings.
-            collection_name (str): Nombre de la colección en Qdrant.
-            vector_size (int): Dimensión de los vectores.
-            distance (Distance): Métrica de distancia a usar (coseno, euclidiana, etc.).
-            qdrant_path (str): Ruta local para almacenamiento de Qdrant.
-            overwrite (bool): Si True, elimina la colección existente antes de crear una nueva.
-
-        Flujo:
-            1.- Conecta con Qdrant mediante QdrantClient.
-            2.- Elimina la colección si `overwrite` es True.
-            3.- Crea la colección si no existe.
+        Inicializa el vector store en Qdrant, manejando posibles excepciones.
         """
-        self.client = QdrantClient(path=qdrant_path)
         self.collection_name = collection_name
         self.embedding_model = embedding_model
 
         try:
+            # Inicializar cliente de Qdrant
+            self.client = QdrantClient(path=qdrant_path)
+
             # Obtener lista de colecciones existentes
             existing_collections = [col.name for col in self.client.get_collections().collections]
 
@@ -50,9 +39,18 @@ class QdrantVectorStore:
                 vectors_config=VectorParams(size=vector_size, distance=distance)
             )
             print(f"Colección '{collection_name}' creada con vector_size={vector_size} y distancia={distance}.")
-
+        except RuntimeError as e:
+            if "already accessed" in str(e):
+                print(f"Advertencia: {e}")
+                print("Otro proceso está usando la misma ruta de almacenamiento. Cambiando a un directorio alternativo.")
+                backup_path = qdrant_path + "_backup"
+                self.client = QdrantClient(path=backup_path)
+                print(f"Cliente Qdrant inicializado con ruta alternativa: {backup_path}")
+            else:
+                raise  # Relanzar otras excepciones no esperadas
         except Exception as e:
-            print(f"Error al gestionar la colección: {e}")
+            print(f"Error inesperado al inicializar el cliente de Qdrant: {e}")
+            raise
 
     def add_embeddings(self, texts, embeddings, metadata=None, batch_size=1000):
 

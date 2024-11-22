@@ -19,6 +19,7 @@ class Retriever:
         """
 
         self.embedding_generator = DenseEmbeddings(model_name=model_name)
+        
         self.qdrant_store = QdrantVectorStore(
             embedding_model=self.embedding_generator,
             collection_name=collection_name,
