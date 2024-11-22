@@ -15,7 +15,7 @@ retriever = Retriever(
 st.title("Búsqueda Semántica con Qdrant")
 
 # Entrada de la consulta del usuario
-query = st.text_input("Introduce tu consulta:", placeholder="Ejemplo: Why must the presence of phenylalanine in drugs containing aspartame be declared, and how should it be labeled?")
+query = st.text_input("Introduce tu consulta:", placeholder="Ejemplo: Why must the presence of phenylalanine in drugs containing aspartame be declared, and how should it be labeled?/What is the definition of artificial flavor?")
 
 # Botón para realizar la búsqueda
 if st.button("Buscar"):
