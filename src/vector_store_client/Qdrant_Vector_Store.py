@@ -10,43 +10,49 @@ class QdrantVectorStore:
     """
 
     def __init__(self, embedding_model, collection_name="demo_collection", vector_size=768, 
-                 distance=Distance.COSINE, qdrant_path="/tmp/langchain_qdrant"):
-        
+                 distance=Distance.COSINE, qdrant_path="/tmp/langchain_qdrant", overwrite=False):
         """
         Inicializa el vector store en Qdrant.
 
         Args:
-            embedding_model (HuggingFaceEmbeddings) : Modelo para generar embeddings.
-            collection_name (str)                   : Nombre de la colección en Qdrant.
-            vector_size (int)                       : Dimensión de los vectores.
-            distance (Distance)                     : Métrica de distancia a usar (coseno)
-            qdrant_path (str)                       : Ruta local para almacenamiento Qdrant V.S.
-
+            embedding_model (HuggingFaceEmbeddings): Modelo para generar embeddings.
+            collection_name (str): Nombre de la colección en Qdrant.
+            vector_size (int): Dimensión de los vectores.
+            distance (Distance): Métrica de distancia a usar (coseno, euclidiana, etc.).
+            qdrant_path (str): Ruta local para almacenamiento de Qdrant.
+            overwrite (bool): Si True, elimina la colección existente antes de crear una nueva.
 
         Flujo:
-            1.- Conecta con qdrant mediante QdrantClient.
-            2.- Elimina la coleccion si existe
-            3.- Crea la coleccion si no existe.
-
+            1.- Conecta con Qdrant mediante QdrantClient.
+            2.- Elimina la colección si `overwrite` es True.
+            3.- Crea la colección si no existe.
         """
         self.client = QdrantClient(path=qdrant_path)
+        self.collection_name = collection_name
+        self.embedding_model = embedding_model
 
         try:
-            # Eliminar la colección solo si es necesario
-            if collection_name in [col.name for col in self.client.get_collections().collections]:
-                print(f"Colección '{collection_name}' ya existe. No se eliminará.")
-            else:
-                self.client.create_collection(
-                    collection_name=collection_name,
-                    vectors_config=VectorParams(size=vector_size, distance=distance))
-            
+            # Obtener lista de colecciones existentes
+            existing_collections = [col.name for col in self.client.get_collections().collections]
+
+            if collection_name in existing_collections:
+                if overwrite:
+                    print(f"Eliminando colección existente '{collection_name}'...")
+                    self.client.delete_collection(collection_name=collection_name)
+                    print(f"Colección '{collection_name}' eliminada.")
+                else:
+                    print(f"Colección '{collection_name}' ya existe. No se sobrescribirá.")
+                    return
+
+            # Crear una nueva colección
+            self.client.create_collection(
+                collection_name=collection_name,
+                vectors_config=VectorParams(size=vector_size, distance=distance)
+            )
             print(f"Colección '{collection_name}' creada con vector_size={vector_size} y distancia={distance}.")
 
         except Exception as e:
-            print(f"Error al crear o verificar la colección: {e}")
-
-        self.collection_name = collection_name
-        self.embedding_model = embedding_model
+            print(f"Error al gestionar la colección: {e}")
 
     def add_embeddings(self, texts, embeddings, metadata=None, batch_size=1000):
 
