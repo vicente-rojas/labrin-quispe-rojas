@@ -3,7 +3,6 @@ from langchain_huggingface import HuggingFaceEmbeddings
 from sklearn.metrics.pairwise import cosine_similarity
 from sentence_transformers import SentenceTransformer
 import torch
-
 class SemanticChunker:
     """
     Esta clase se usa para dividir el documento preprocesado en chunks semanticos basados 
@@ -12,12 +11,11 @@ class SemanticChunker:
     Atributos:
         document (str)                                  : El documento a dividir en chunk semanticos.
         buffer_size (int)                               : Número de oraciones adicionales alrededor de la oracion principal
-                                                            para calcular el embbeding combinado.
+                                                          para calcular el embbeding combinado.
         model_name (str)                                : Nombre del modelo a usar para generar los embeddings
         sentences (list)                                : Lista de oraciones extraidas del documento
         dense_embedding_model (HuggingFaceEmbeddings)   : El modelo para usar en embeddings
     """
-
     def __init__(self, document, buffer_size=1, model_name="sentence-transformers/all-mpnet-base-v2"):
         self.document = document
         self.buffer_size = buffer_size
@@ -25,24 +23,18 @@ class SemanticChunker:
         self.sentences = self.split_into_sentences()
         self.dense_embedding_model = HuggingFaceEmbeddings(model_name=self.model_name)
 
-
     def split_into_sentences(self):
-
         """
         Este metodo divide el documento en oraciones usando expresiones regulares
 
         Retorna:
             list: Lista de diccionarios, cada uno contiene una oración y su índice.
         """
-
         single_sentences_list = re.split(r"(?<=[.!?])\s+", self.document)
 
         return [{'sentence': x, 'index': i} for i, x in enumerate(single_sentences_list) if x]
 
-
-
     def combine_sentences(self):
-
         """
         Este método combina oraciones en oraciones (chunks) en un rango determinado por el buffer_zise(),
         para crear oraciones extendidas. 
@@ -59,7 +51,6 @@ class SemanticChunker:
             list: Lista de dict{}, cada uno conti
             ene una oración combinada y su índice.
         """
-
         for i in range(len(self.sentences)):
             combined_sentence = ''
 
@@ -77,7 +68,6 @@ class SemanticChunker:
         return self.sentences
 
     def calculate_cosine_distances(self):
-
         """
         EL metodo de la distancia del coseno calcula las distancias de coseno entre oraciones adyacentes.
 
@@ -91,7 +81,6 @@ class SemanticChunker:
         Retorna:
             list: Lista de distancias entre oraciones.
         """
-
         # Asegura que las oraciones combinadas estén creadas
         self.combine_sentences()
 
@@ -112,8 +101,6 @@ class SemanticChunker:
             self.sentences[i]['distance_to_next'] = distance
         return distances
 
-
-
     def split_into_chunks(self, threshold):
         """
         El split_into_chunks() divide el documento en chunks basado en la similaridad coseno.
@@ -130,8 +117,6 @@ class SemanticChunker:
 
         Retorna:
             list: Lista de chunks.
-
-
         """
         self.combine_sentences()
 

@@ -3,12 +3,10 @@ from qdrant_client import QdrantClient
 from qdrant_client.http.models import Distance, VectorParams
 
 class QdrantVectorStore:
-
     """
     Se define la clase QdrantVectorStore para manejar BD vectorial en Qdrant con soporte para embeddings densos
     generados por HuggingFace.
     """
-
     def __init__(self, embedding_model, collection_name="demo_collection", vector_size=768, 
                  distance=Distance.COSINE, qdrant_path="/tmp/langchain_qdrant", overwrite=False):
         """
@@ -53,7 +51,6 @@ class QdrantVectorStore:
             raise
 
     def add_embeddings(self, texts, embeddings, metadata=None, batch_size=1000):
-
         """
         Agrega embeddings a la coleccion del vector store en Qdrant, cargando los datos en lotes.
 
@@ -70,9 +67,7 @@ class QdrantVectorStore:
             4.- Para cada lote se seleccionan los textos, embeddings y mnetadatos del rango correspondientes y
                     se crea una lista de documentos para Qdrant.
             5.-. Se suben los lotes a Qdrant.
-        
         """
-
         if len(texts) != len(embeddings):
             raise ValueError("El número de textos y embeddings debe coincidir.")
 
@@ -104,7 +99,6 @@ class QdrantVectorStore:
             print(f"Lote {batch_index + 1}/{total_batches} subido: {len(batch_embeddings)} embeddings.")
 
     def search(self, query, top_k=5):
-
         """
         Se define un metodo de busca en la colección los embeddings más cercanos a la consulta que retorna
         los top_k embeddings más similares a la consulta.
@@ -121,7 +115,6 @@ class QdrantVectorStore:
         Returns:
             list: Lista de resultados con sus scores y payloads.
         """
-
         # Generar embedding para la consulta
         embedding = self.embedding_model.embed_query(query)
 
@@ -135,7 +128,6 @@ class QdrantVectorStore:
         return [{"score": res.score, "payload": res.payload} for res in results]
 
     def update_embeddings(self, ids, new_embeddings, new_payloads):
-
         """
         Se define un metodo para actualizar los embeddings para puntos existentes en la coleccion.
 
@@ -144,7 +136,6 @@ class QdrantVectorStore:
             new_embeddings (list)   : Nuevos vectores para los puntos.
             new_payloads (list)     : Nuevos payloads para los puntos.
         """
-
         points = [
             {"id": id_, "vector": new_embeddings[i], "payload": new_payloads[i]}
             for i, id_ in enumerate(ids)]

@@ -1,0 +1,1 @@
+PSA Con la libreria pipreqs se crea el requirements solo con las librerías que se  están usando realmente en el proyecto
