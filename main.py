@@ -17,7 +17,8 @@ from src.reranker.re_ranker import DocumentReRanker
 from src.retrievers.repacking import DocumentRepacker
 from src.retrievers.HyDE import HyDE
 from src.summarizer.Summarizer import OllamaSummarizer
-#from src.evaluacion.evaluacion import Evaluator
+
+
 
 #####################################  Etapa 1: Chunks, Embeddings y Vector Store ########################################  
 
@@ -185,6 +186,96 @@ from src.summarizer.Summarizer import OllamaSummarizer
 ##########################################  Etapa 3: Evaluación de RAG ##########################################
 
 
+# # Paso 6: Cargar el corpus de textos desde el archivo all_chunks.json
+
+# with open("all_chunks.json", "r", encoding="utf-8") as f:
+#     loaded_chunks = json.load(f)
+# chunk_texts = [chunk["text"] for chunk in loaded_chunks]
+
+# # Inicializar el Embbeding Generator
+# embedding_generator = DenseEmbeddings(model_name="sentence-transformers/all-mpnet-base-v2")
+
+# # Inicializar instancia de Retriever, Query Rewriter y HyDE
+# print("=== Inicialización de herramientas RAG ===")
+
+# query_rewriter = QueryRewriter(ollama_url="http://localhost:11434/api/chat", model_name="llama3.2")
+
+# hyde = HyDE(ollama_url="http://localhost:11434/api/chat", model_name="llama3.2", embedding_model=embedding_generator)
+
+# retriever = Retriever(
+#     model_name="sentence-transformers/all-mpnet-base-v2",
+#     collection_name="semantic_chunks",
+#     vector_size=768,
+#     distance_metric=Distance.COSINE,
+#     alpha=0.5,
+#     chunk_texts=chunk_texts)
+
+# retriever.fit_sparse_index(chunk_texts)
+
+# reranker = DocumentReRanker(model_name="cross-encoder/ms-marco-MiniLM-L-6-v2")
+# repacker = DocumentRepacker(embedding_model=embedding_generator)
+
+# # Paso 7: Consulta y recuperación
+# print("=== Consulta ===")
+# query ="What standards must be met for food additives to be considered safe?"
+# print(f"Consulta original: {query}")
+
+# # Paso 8: Reformulación de la consulta utilizando LLM (Ollama)
+# rewritten_query = query_rewriter.rewrite(query)
+# if not rewritten_query.strip():
+#     print("Failed to generate a rewritten query. Using the original query.")
+#     rewritten_query = query
+# print(f"Consulta reformulada: {rewritten_query}")
+
+# # Paso 9: Recuperación con HyDE (Hybrid Document Embeddings - Ollama)
+# results_with_hyde = hyde.search_with_hyde(rewritten_query, retriever, top_k=15)
+
+# # Generación de un documento hipotético con HyDE
+# hypothetical_document = hyde.generate_hypothetical_document(rewritten_query)
+# print("\nDocumento Hipotético Generado por HyDE:\n")
+# print(hypothetical_document)
+
+# # Recuperación con HyDE
+# results_with_hyde = hyde.search_with_hyde(rewritten_query, retriever, top_k=15)
+
+# # Paso 9.5: Evaluación con RAGAs
+# data = {"query": rewritten_query, "retrieved_results": results_with_hyde}  
+# raga_evaluator = Evaluator(dataset=data)
+# evaluated_results = raga_evaluator.evaluate()
+
+# print("\nResultados evaluados con RAGAs:")
+# print(evaluated_results)
+
+# # Paso 10: Re-ranking y Re-packing
+# repacked_results = repacker.repack(rewritten_query, results_with_hyde)
+# reranked_results = reranker.rerank(rewritten_query, repacked_results)
+
+# # Mostrar resultados relevantes en funcion de la consulta
+# print("\nResultados reordenados (Document Re-ranking):")
+# for res in reranked_results:
+#     print(f"Texto: {res[0]}, Score: {res[1]}")
+
+# # Paso 11: Generación de resumen con Ollama (funcion ollama_summarizer.generate_summary)
+
+# api_url = "http://localhost:11434/api/chat"
+# ollama_summarizer = OllamaSummarizer(api_url=api_url, model="llama3.2")
+
+# # Define un contexto dinámico basado en el resultado
+# dynamic_context = "Summary of the relevant chunks and key findings for the query"
+
+# try:
+#     summary = ollama_summarizer.generate_summary(
+#         reranked_results=reranked_results, 
+#         num_fragments=5, 
+#         context=dynamic_context
+#     )
+#     print("\nGenerated Summary:\n", summary)
+# except Exception as e:
+#     print(f"An error occurred: {e}")
+
+
+##########################################  Etapa 4: Evaluacion con Ragas ##########################################
+
 # Paso 6: Cargar el corpus de textos desde el archivo all_chunks.json
 
 with open("all_chunks.json", "r", encoding="utf-8") as f:
@@ -237,14 +328,6 @@ print(hypothetical_document)
 # Recuperación con HyDE
 results_with_hyde = hyde.search_with_hyde(rewritten_query, retriever, top_k=15)
 
-# # Paso 9.5: Evaluación con RAGAs
-# data = {"query": rewritten_query, "retrieved_results": results_with_hyde}  
-# raga_evaluator = Evaluator(dataset=data)
-# evaluated_results = raga_evaluator.evaluate()
-
-# print("\nResultados evaluados con RAGAs:")
-# print(evaluated_results)
-
 # Paso 10: Re-ranking y Re-packing
 repacked_results = repacker.repack(rewritten_query, results_with_hyde)
 reranked_results = reranker.rerank(rewritten_query, repacked_results)
@@ -271,3 +354,9 @@ try:
     print("\nGenerated Summary:\n", summary)
 except Exception as e:
     print(f"An error occurred: {e}")
+
+
+
+
+
+

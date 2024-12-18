@@ -1,0 +1,49 @@
+{
+    "questions": [
+        {
+            "question": "Question 1: What is required for the mandatory presence of label information on food packages?",
+            "ground_truth": "Food packages must include all required label information on the container or wrapper, ensuring that such information is easily visible and legible through any transparent outer layer if present."
+        },
+        {
+            "question": "Question 2: What constitutes a failure to reveal material facts in food labeling?",
+            "ground_truth": "Food labeling is considered misleading if it fails to disclose material facts that are necessary in light of other representations made or that relate to potential consequences of using the product under customary conditions."
+        },
+        {
+            "question": "Question 3: Under what circumstances can food labels be exempt from mandatory statements?",
+            "ground_truth": "Exemptions are allowed for food items in bulk containers sold directly to consumers, individual portions under specific weights, and certain multiunit retail packages with mandatory information provided on unit containers."
+        },
+        {
+            "question": "Question 4: What labeling requirements apply to random weight food packages?",
+            "ground_truth": "Random weight food packages must display net weight, price per unit of weight, and total price conspicuously on the principal display panel, exempting them from certain type size and dual declaration requirements."
+        },
+        {
+            "question": "Question 5: How are soft drink labels regulated for multiunit retail packages?",
+            "ground_truth": "Soft drink multiunit retail packages are exempt from some labeling requirements if unit container information remains visible, and identity or business information is either displayed or referenced as available on the unit containers."
+        },
+        {
+            "question": "Question 6: What exemptions apply to frozen dessert containers?",
+            "ground_truth": "Ice cream and similar frozen desserts measured in half-pint or half-gallon containers may use simplified net content expressions such as '1/2 pint' or '1/2 gallon,' exempting them from specific dual declaration requirements."
+        },
+
+        {
+            "question": "Question 7: When can ingredient declarations be omitted on food labels?",
+            "ground_truth": "Ingredient declarations may be omitted if they are deemed impractical or result in unfair competition, subject to regulatory approval under specific statutory provisions."
+        },
+
+        {
+            "question": "Question 8: How are food products in transparent wrappers regulated?",
+            "ground_truth": "Transparent wrappers must not obscure mandatory label information, and all required statements must remain legible through the transparent material."
+        },
+        {
+            "question": "Question 9: What labeling exemptions are provided for small individual serving-size food packages?",
+            "ground_truth": "Individual serving-size packages of foods containing less than 1/2 ounce or less than 1/2 fluid ounce for use in restaurants, institutions, and passenger carriers, and not intended for retail sale, are exempt from the required declaration of net quantity of contents."
+        },
+        {
+            "question": "Question 10: What are the placement requirements for soft drink labels with content declarations on bottle closures?",
+            "ground_truth": "Soft drinks packaged in bottles with content declarations on the bottle closure are exempt from standard placement requirements if the declaration is blown, formed, or molded into the bottle surface near the closure, ensuring it is legible and not obscured."
+        }
+
+    ]
+}
+
+
