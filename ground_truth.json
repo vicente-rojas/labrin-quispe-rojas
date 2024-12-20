@@ -1,49 +1,204 @@
 {
     "questions": [
         {
-            "question": "Question 1: What is required for the mandatory presence of label information on food packages?",
-            "ground_truth": "Food packages must include all required label information on the container or wrapper, ensuring that such information is easily visible and legible through any transparent outer layer if present."
+            "question": "Question 1: What are the general labeling requirements for food packages?",
+            "ground_truth": "Food packages must include all mandatory label information, ensuring it is visible, legible, and not obscured by any transparent outer layer."
         },
         {
-            "question": "Question 2: What constitutes a failure to reveal material facts in food labeling?",
-            "ground_truth": "Food labeling is considered misleading if it fails to disclose material facts that are necessary in light of other representations made or that relate to potential consequences of using the product under customary conditions."
+            "question": "Question 2: How are random weight food packages labeled?",
+            "ground_truth": "Random weight food packages must display net weight, price per unit of weight, and total price prominently on the principal display panel."
         },
         {
-            "question": "Question 3: Under what circumstances can food labels be exempt from mandatory statements?",
-            "ground_truth": "Exemptions are allowed for food items in bulk containers sold directly to consumers, individual portions under specific weights, and certain multiunit retail packages with mandatory information provided on unit containers."
+            "question": "Question 3: What constitutes misleading labeling under food regulations?",
+            "ground_truth": "Misleading labeling occurs when material facts are omitted or representations made fail to disclose necessary information about the product's use or potential consequences."
         },
         {
-            "question": "Question 4: What labeling requirements apply to random weight food packages?",
-            "ground_truth": "Random weight food packages must display net weight, price per unit of weight, and total price conspicuously on the principal display panel, exempting them from certain type size and dual declaration requirements."
+            "question": "Question 4: When are food labels exempt from declaring net quantity?",
+            "ground_truth": "Food labels are exempt from declaring net quantity when the food is packaged in bulk containers sold to consumers or is individually small-sized portions below specific weights."
         },
         {
-            "question": "Question 5: How are soft drink labels regulated for multiunit retail packages?",
-            "ground_truth": "Soft drink multiunit retail packages are exempt from some labeling requirements if unit container information remains visible, and identity or business information is either displayed or referenced as available on the unit containers."
+            "question": "Question 5: What are the labeling rules for frozen desserts in specific containers?",
+            "ground_truth": "Frozen desserts in half-pint or half-gallon containers may use simplified expressions like '1/2 pint' or '1/2 gallon' to declare net content."
         },
         {
-            "question": "Question 6: What exemptions apply to frozen dessert containers?",
-            "ground_truth": "Ice cream and similar frozen desserts measured in half-pint or half-gallon containers may use simplified net content expressions such as '1/2 pint' or '1/2 gallon,' exempting them from specific dual declaration requirements."
-        },
-
-        {
-            "question": "Question 7: When can ingredient declarations be omitted on food labels?",
-            "ground_truth": "Ingredient declarations may be omitted if they are deemed impractical or result in unfair competition, subject to regulatory approval under specific statutory provisions."
-        },
-
-        {
-            "question": "Question 8: How are food products in transparent wrappers regulated?",
-            "ground_truth": "Transparent wrappers must not obscure mandatory label information, and all required statements must remain legible through the transparent material."
+            "question": "Question 6: How must soft drink multiunit retail packages be labeled?",
+            "ground_truth": "Soft drink multiunit packages must display product identity and other mandatory information unless already visible on individual containers."
         },
         {
-            "question": "Question 9: What labeling exemptions are provided for small individual serving-size food packages?",
-            "ground_truth": "Individual serving-size packages of foods containing less than 1/2 ounce or less than 1/2 fluid ounce for use in restaurants, institutions, and passenger carriers, and not intended for retail sale, are exempt from the required declaration of net quantity of contents."
+            "question": "Question 7: What are the regulations for labeling transparent food wrappers?",
+            "ground_truth": "Transparent wrappers must not obscure mandatory label information, and all required statements must remain legible."
         },
         {
-            "question": "Question 10: What are the placement requirements for soft drink labels with content declarations on bottle closures?",
-            "ground_truth": "Soft drinks packaged in bottles with content declarations on the bottle closure are exempt from standard placement requirements if the declaration is blown, formed, or molded into the bottle surface near the closure, ensuring it is legible and not obscured."
+            "question": "Question 8: What are the labeling requirements for dietary supplements?",
+            "ground_truth": "Dietary supplements must include identity, quantity, and supplement facts panels, as well as directions for use and warnings when applicable."
+        },
+        {
+            "question": "Question 9: How are ingredients listed on food labels?",
+            "ground_truth": "Ingredients must be listed in descending order of predominance by weight, with sub-ingredients disclosed within parentheses."
+        },
+        {
+            "question": "Question 10: What safety factors must be considered when evaluating food additives?",
+            "ground_truth": "Safety evaluations of food additives must consider probable consumption, cumulative dietary effects, and chemically related substances."
+        },
+        {
+            "question": "Question 11: How is GRAS status determined for substances?",
+            "ground_truth": "GRAS status is determined based on scientific procedures or a substantial history of consumption by a significant number of consumers."
+        },
+        {
+            "question": "Question 12: What information is required on labels for nonperishable processed food?",
+            "ground_truth": "Labels for nonperishable processed food must include product name, manufacturer information, net quantity, and nutritional facts."
+        },
+        {
+            "question": "Question 13: When can food additives bypass regulation?",
+            "ground_truth": "Food additives can bypass regulation if they are used in a manner that results in no migration into food or are already GRAS."
+        },
+        {
+            "question": "Question 14: What are the guidelines for irradiating food during processing?",
+            "ground_truth": "Irradiated food must be labeled with the Radura symbol and a statement indicating that it has been treated with ionizing radiation."
+        },
+        {
+            "question": "Question 15: What are the requirements for listing allergens on food labels?",
+            "ground_truth": "Allergens must be declared in plain language, either in the ingredient list or a separate 'Contains' statement."
+        },
+        {
+            "question": "Question 16: How must food additives in standardized foods be labeled?",
+            "ground_truth": "Food additives in standardized foods must comply with the requirements of the specific standard of identity for that food."
+        },
+        {
+            "question": "Question 17: What is required for food additive petitions?",
+            "ground_truth": "Food additive petitions must include evidence of safety, chemical composition, manufacturing methods, and proposed conditions of use."
+        },
+        {
+            "question": "Question 18: How are prohibited substances in human food handled?",
+            "ground_truth": "Prohibited substances are listed in regulations, and food products containing them are deemed adulterated and subject to enforcement actions."
+        },
+        {
+            "question": "Question 19: What are the labeling requirements for multiingredient food products?",
+            "ground_truth": "Multiingredient food products must list all ingredients, including additives and allergens, in descending order of predominance by weight."
+        },
+        {
+            "question": "Question 20: How must organic food labels be formatted?",
+            "ground_truth": "Organic food labels must include the USDA Organic seal and specify the certifying agency in the information panel."
+        },
+        {
+            "question": "Question 21: What are the labeling rules for nutritional claims?",
+            "ground_truth": "Nutritional claims must be substantiated by scientific evidence and comply with specific definitions provided in regulations."
+        },
+        {
+            "question": "Question 22: When is dual column labeling required for food products?",
+            "ground_truth": "Dual column labeling is required when the product is commonly consumed in multiple servings, providing nutritional information per serving and per container."
+        },
+        {
+            "question": "Question 23: What is required for the submission of GRAS notices?",
+            "ground_truth": "GRAS notices must include identity, manufacturing process, safety evidence, dietary exposure, and technical functionality of the substance."
+        },
+        {
+            "question": "Question 24: What labeling exemptions exist for spices and flavorings?",
+            "ground_truth": "Spices and flavorings may be labeled generically unless they contain allergens or are artificial, in which case specific disclosure is required."
+        },
+        {
+            "question": "Question 25: How is the net quantity displayed on food labels?",
+            "ground_truth": "Net quantity must be displayed in metric and U.S. customary units, placed prominently on the principal display panel."
+        },
+        {
+            "question": "Question 26: How are food products containing irradiated ingredients labeled?",
+            "ground_truth": "Food products containing irradiated ingredients must include a label with the Radura symbol and a statement indicating the use of irradiation."
+        },
+        {
+            "question": "Question 27: What is the required format for nutrition facts panels?",
+            "ground_truth": "Nutrition facts panels must follow a standardized format including serving size, calories, macronutrients, vitamins, and minerals per serving."
+        },
+        {
+            "question": "Question 28: What constitutes a high-calorie claim on food labels?",
+            "ground_truth": "A high-calorie claim is made when the product provides 400 or more calories per serving, requiring a disclosure statement."
+        },
+        {
+            "question": "Question 29: What are the rules for health claims on food packaging?",
+            "ground_truth": "Health claims must be supported by scientific evidence and approved by the FDA before use on packaging."
+        },
+        {
+            "question": "Question 30: How is the expiration date required to be presented on food labels?",
+            "ground_truth": "The expiration date must be clearly displayed in a format that indicates the last date of recommended consumption."
+        },
+        {
+            "question": "Question 31: What is the difference between 'use by' and 'sell by' dates on food labels?",
+            "ground_truth": "'Use by' dates indicate the last recommended consumption date for peak quality, while 'sell by' dates are for inventory management."
+        },
+        {
+            "question": "Question 32: When are trans fats required to be disclosed on food labels?",
+            "ground_truth": "Trans fats must be disclosed when the product contains 0.5 grams or more per serving, listed in the nutrition facts panel."
+        },
+        {
+            "question": "Question 33: How are food products certified as gluten-free labeled?",
+            "ground_truth": "Gluten-free labels are permitted when the product contains less than 20 parts per million of gluten and meets FDA guidelines."
+        },
+        {
+            "question": "Question 34: What are the labeling rules for sugar substitutes in food products?",
+            "ground_truth": "Sugar substitutes must be identified by their common or usual name in the ingredient list on the product label."
+        },
+        {
+            "question": "Question 35: What are the requirements for country of origin labeling?",
+            "ground_truth": "Country of origin labeling must specify the country where the product was produced, particularly for imported food products."
+        },
+        {
+            "question": "Question 36: How are serving sizes determined for food labeling?",
+            "ground_truth": "Serving sizes are based on Reference Amounts Customarily Consumed (RACCs) as defined by the FDA for each food category."
+        },
+        {
+            "question": "Question 37: What is required for kosher food labeling?",
+            "ground_truth": "Kosher labels must indicate certification by a recognized kosher certification agency, ensuring compliance with dietary laws."
+        },
+        {
+            "question": "Question 38: How is sodium content labeled on food products?",
+            "ground_truth": "Sodium content must be listed in milligrams per serving in the nutrition facts panel and marked as low or high if applicable."
+        },
+        {
+            "question": "Question 39: What are the requirements for calorie-free claims on food labels?",
+            "ground_truth": "Calorie-free claims can be made if the product contains fewer than 5 calories per serving, as defined by FDA regulations."
+        },
+        {
+            "question": "Question 40: How are artificial colors disclosed on food labels?",
+            "ground_truth": "Artificial colors must be disclosed by their specific name in the ingredient list, except for exemptions granted by regulations."
+        },
+        {
+            "question": "Question 41: What is required for organic labeling of multi-ingredient foods?",
+            "ground_truth": "Multi-ingredient organic foods must have at least 95% certified organic ingredients and display the USDA Organic seal."
+        },
+        {
+            "question": "Question 42: How is caffeine content regulated on food labels?",
+            "ground_truth": "Caffeine content must be disclosed if it is added as an ingredient, particularly for products marketed to sensitive groups."
+        },
+        {
+            "question": "Question 43: When must warning labels be used on food products?",
+            "ground_truth": "Warning labels are required when food products contain substances that pose health risks, such as allergens or high caffeine content."
+        },
+        {
+            "question": "Question 44: How are products with added vitamins and minerals labeled?",
+            "ground_truth": "Products with added vitamins and minerals must specify the amount per serving in the nutrition facts panel."
+        },
+        {
+            "question": "Question 45: What is required for food labels to comply with bilingual regulations?",
+            "ground_truth": "Bilingual food labels must include mandatory information in both languages, ensuring readability and compliance with local laws."
+        },
+        {
+            "question": "Question 46: How is packaging material migration into food addressed in labeling?",
+            "ground_truth": "Labels must disclose if packaging material is likely to migrate into food, especially for materials with known safety risks."
+        },
+        {
+            "question": "Question 47: How must cholesterol content be displayed on food labels?",
+            "ground_truth": "Cholesterol content must be listed in milligrams per serving in the nutrition facts panel, and low cholesterol claims must meet FDA criteria."
+        },
+        {
+            "question": "Question 48: How are food products with genetically modified organisms (GMOs) labeled?",
+            "ground_truth": "GMOs must be disclosed on food labels if required by specific regulations or when voluntarily added by manufacturers."
+        },
+        {
+            "question": "Question 49: What is required for food labels to indicate high-fiber content?",
+            "ground_truth": "High-fiber claims must be substantiated by the product containing at least 5 grams of fiber per serving."
+        },
+        {
+            "question": "Question 50: How must added sugar content be presented on food labels?",
+            "ground_truth": "Added sugar content must be listed separately from total sugars in the nutrition facts panel and presented in grams per serving."
         }
-
     ]
 }
-
-

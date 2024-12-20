@@ -4,12 +4,12 @@ import json
 class HyDE:
     def __init__(self, ollama_url="http://localhost:11434/api/chat", model_name="llama3.2", embedding_model=None):
         '''
-        Se define una clase HyDE, la cual se encarga de generar documentos hipotéticos y realizar busquedas en el Vector Store.
-        
+        Se define una clase HyDE, la cual se encarga de generar documentos hipotéticos y realizar busquedas
+        en el Vector Store.
         Args:
-            ollama_url: URL del servidor de Ollama.
-            model_name: Nombre del modelo de lenguaje a utilizar para la generación de documentos hipotéticos.
-            embedding_model: Modelo de embeddings para generar embeddings de documentos hipotéticos.
+            self.ollama_url      : URL del servidor de Ollama.
+            self.model_name      : Nombre del modelo de lenguaje a utilizar para la generación de documentos hipotéticos.
+            self.embedding_model : Modelo de embeddings para generar embeddings de documentos hipotéticos.
         '''
         self.ollama_url = ollama_url
         self.model_name = model_name
@@ -17,7 +17,6 @@ class HyDE:
 
     def generate_hypothetical_document(self, query):
         '''Se define la función generate_hypothetical_document, la cual genera un documento hipotético'''
-
         # Se construye una carga (payload) para la solicitud POST al servidor de Ollama especificando modelo y mensaje.
         payload = {
             "model": self.model_name,
@@ -47,12 +46,10 @@ class HyDE:
     def search_with_hyde(self, query, retriever, top_k=5):
         """
         Se define una funcion de busqueda utilizando documentos hipotéticos generados por HyDE.
-
         Args:
             query (str)     : Consulta en lenguaje natural.
             retriever       : Objeto para recuperar documentos relevantes.
             top_k (int)     : Número de resultados relevantes a devolver.
-
         Returns:
             list: Resultados de búsqueda.
         """

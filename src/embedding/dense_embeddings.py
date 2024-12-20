@@ -6,7 +6,6 @@ class DenseEmbeddings:
         """
         Se define la clase DenseEmbeddings para generar los embeddings de los chunks semanticos
         utilizando HuggingFace.
-
         Args:
             model_name (str): El nombre del modelo HuggingFace que se utilizará para generar embeddings.
         """
@@ -18,10 +17,8 @@ class DenseEmbeddings:
         Genera embeddings para una lista de documentos o chunks. 
         En este caso, se generan los ambedding a partir de los chunks semanticos de la parte
         N° 3 de chunking del docuemntos json.
-
         Args:
             docs (list of str): Lista de fragmentos de texto.
-
         Returns:
             list: Lista de embeddings.
         """
@@ -30,10 +27,8 @@ class DenseEmbeddings:
     def embed_query(self, query):
         """
         Genera un embedding para una consulta o texto único.
-
         Args:
             query (str): Texto de consulta.
-
         Returns:
             numpy.ndarray: Vector de embedding generado para la consulta.
         """

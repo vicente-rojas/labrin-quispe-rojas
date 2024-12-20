@@ -5,7 +5,6 @@ class DocumentReRanker:
         """
         Se inicializa la clase DocumentReRanker, el cual define la funcionalidad de reordenar
         documentos (chunks) en funcion de su relevancia (metrica) de una consulta especifica.
-
         Args:
             model_name (str): Nombre del modelo de Cross-Encoder para re-ranking.
         """
@@ -16,8 +15,7 @@ class DocumentReRanker:
         La funcion rerank re-rankea (reordena) los documentos recuperados según la relevancia con la consulta.
         Aunque los documentos ya vienen con un score, este metodo recalcula los scores con el modelo
         utilizando Cross-Encoder para cacular nuevas puntuaciones mas precisas en base a la consulta.
-
-        Args:
+        Args
             query (str): Consulta reformulada.
             results (list): Lista de tuplas (texto_documento, score).
 

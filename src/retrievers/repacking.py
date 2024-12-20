@@ -6,7 +6,6 @@ class DocumentRepacker:
         """
         Se inicializa la clase DocumentRepacker. Esta clse encapsula la lógica para reorganizar o combinar
         documentos relacionados en función de sus similitudes con una consulta.
-
         Args:
             embedding_model: Modelo para generar embeddings de texto.
         """
@@ -15,11 +14,9 @@ class DocumentRepacker:
     def repack(self, query, results):
         '''
         Se define la función que combina fragmentos de documentos relacionados en función de la similitud con la consulta.
-        
         Args:
             query (str)     : Consulta del usuario/Consulta en lenguaje natural.
             results (list)  : Lista de tuplas (texto, score) que representan los fragmentos de documentos y sus puntuaciones.
-
         Returns:
             list: Lista de tuplas (texto, score) que representan los fragmentos de documentos combinados y sus puntuaciones.
         '''

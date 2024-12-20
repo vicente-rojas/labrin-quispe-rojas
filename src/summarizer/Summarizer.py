@@ -4,10 +4,9 @@ import requests
 class OllamaSummarizer:
     """
     Se define una clase para combinar y resumir fragmentos de texto utilizando la API de Ollama.
-
     Args:
-        api_url (str): URL del punto final de la API de Ollama.
-        model (str): Nombre del modelo a utilizar para la generación de texto.  
+        api_url (str)   : URL del punto final de la API de Ollama.
+        model (str)     : Nombre del modelo a utilizar para la generación de texto.  
     """
     def __init__(self, api_url, model="llama3.2"):
         self.api_url = api_url
@@ -16,12 +15,11 @@ class OllamaSummarizer:
     def generate_summary(self, reranked_results, num_fragments=5, context=None):
         """
         Se define la funcion generate_summary para combinar los fragmentos de texto superiores y generar un resumen utilizando la API de Ollama.
-
         Args:
-            reranked_results (list): Lista de fragmentos de texto clasificados por relevancia.
-            num_fragments (int): Número de fragmentos superiores a combinar.
-            context (str): Contexto para la solicitud de resumen. Si es None, se utiliza un contexto predeterminado.        
-
+            reranked_results (list)     : Lista de fragmentos de texto clasificados por relevancia.
+            num_fragments (int)         : Número de fragmentos superiores a combinar.
+            context (str)               : Contexto para la solicitud de resumen. 
+                                            Si es None, se utiliza un contexto predeterminado.        
         Returns:
             str: Resumen generado como una cadena.
         """

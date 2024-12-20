@@ -15,10 +15,8 @@ class DocumentIngestionPipeline:
     def __init__(self, directory_path):
         """
         Inicializa el pipeline de ingesta de documentos.
-
         Args:
             directory_path (str): Ruta a la carpeta donde se encuentran los archivos.
-
         Atributos:
             self.directory_path (str)      : guarda la ruta donde se encuentran los archivos.
             self.processed_files (dict)    : diccionario que almacena el hash de los archivos.
@@ -31,10 +29,8 @@ class DocumentIngestionPipeline:
     def hash_file(self, filepath):
         """
         La funcion genera un hash HD5 para el archivo para detectar cambios en  los documentos.
-
         Args:
             filepath (str): Ruta del archivo para generar el hash.
-
         Returns:
             str: Hash MD5 del archivo.
         """
@@ -44,10 +40,8 @@ class DocumentIngestionPipeline:
     def extract_text_from_pdf(self, filepath):
         """
         Extrae texto de un archivo PDF.
-
         Args:
             filepath (str): Ruta del archivo PDF.
-
         Returns:
             str: Texto extraído del PDF.
         """
@@ -57,10 +51,8 @@ class DocumentIngestionPipeline:
     def extract_text_from_docx(self, filepath):
         """
         Extrae texto de un archivo DOCX.
-
         Args:
             filepath (str): Ruta del archivo DOCX.
-
         Returns:
             str: Texto extraído del documento DOCX.
         """
@@ -70,10 +62,8 @@ class DocumentIngestionPipeline:
     def extract_text_from_txt(self, filepath):
         """
         Extrae texto de un archivo TXT.
-
         Args:
             filepath (str): Ruta del archivo TXT.
-
         Returns:
             str: Texto extraído del archivo TXT.
         """

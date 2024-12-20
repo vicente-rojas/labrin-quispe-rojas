@@ -11,7 +11,6 @@ class PreprocesamientoJson:
     def __init__(self, input_file, output_file="cleaned_documents.json"):
         """
         Se inicializa la clase con el archivo de entrada y salida.
-
         Args:
             input_file (str): Ruta del archivo JSON de entrada.
             output_file (str): Ruta del archivo JSON de salida para los datos limpios.
@@ -35,10 +34,8 @@ class PreprocesamientoJson:
         """
         La funcion realiza la limpieza y normalizacion del texto, conservando 
         la puntuación básica y normalizando espacios.
-
         Args:
             text (str): Texto a limpiar, el cual es cargado en self.documents
-
         Returns:
             str: Texto preprocesado, limpio y normlaizado.
         """
