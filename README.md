@@ -87,6 +87,13 @@ El proyecto para el curso INF3822 Proyecto Aplicado I implementa un Retrieval Au
 
 ---
 
+## Pipeline RAG
+
+![Diagrama del Pipeline RAG](INF_3822_Diagrama_RAG-Página-2.drawio.png)
+---
+
+
+
 ## Características del Proyecto
 
 - Generación y almacenamiento de embeddings para los documentos procesados.
