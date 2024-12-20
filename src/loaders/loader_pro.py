@@ -3,9 +3,7 @@ import hashlib
 from pdfminer.high_level import extract_text
 from docx import Document  
 import json
-
 class DocumentIngestionPipeline:
-
     """
     Clase que puede procesar distintos tipos de archivos (pdf, docx y txt) y conviertiendolos a texto. 
     
@@ -14,16 +12,11 @@ class DocumentIngestionPipeline:
 
     La informacion extraida se guarda en un archivo json.
     """
-
-
     def __init__(self, directory_path):
-
         """
         Inicializa el pipeline de ingesta de documentos.
-
         Args:
             directory_path (str): Ruta a la carpeta donde se encuentran los archivos.
-
         Atributos:
             self.directory_path (str)      : guarda la ruta donde se encuentran los archivos.
             self.processed_files (dict)    : diccionario que almacena el hash de los archivos.
@@ -33,33 +26,22 @@ class DocumentIngestionPipeline:
         self.processed_files = {}
         self.documents = []
 
-
-
     def hash_file(self, filepath):
-
         """
         La funcion genera un hash HD5 para el archivo para detectar cambios en  los documentos.
-
         Args:
             filepath (str): Ruta del archivo para generar el hash.
-
         Returns:
             str: Hash MD5 del archivo.
         """
-
         with open(filepath, 'rb') as file:
             return hashlib.md5(file.read()).hexdigest()
         
-
-
     def extract_text_from_pdf(self, filepath):
-
         """
         Extrae texto de un archivo PDF.
-
         Args:
             filepath (str): Ruta del archivo PDF.
-
         Returns:
             str: Texto extraído del PDF.
         """
@@ -67,39 +49,28 @@ class DocumentIngestionPipeline:
         return extract_text(filepath)
 
     def extract_text_from_docx(self, filepath):
-
         """
         Extrae texto de un archivo DOCX.
-
         Args:
             filepath (str): Ruta del archivo DOCX.
-
         Returns:
             str: Texto extraído del documento DOCX.
         """
-
         doc = Document(filepath)
         return "\n".join([p.text for p in doc.paragraphs])
 
     def extract_text_from_txt(self, filepath):
-
         """
         Extrae texto de un archivo TXT.
-
         Args:
             filepath (str): Ruta del archivo TXT.
-
         Returns:
             str: Texto extraído del archivo TXT.
         """
-
         with open(filepath, 'r', encoding='utf-8') as file:
             return file.read()
         
-
-
     def load_documents(self):
-
         """
         La funcion procesa todos los archivos en la ruta y extrae y almacen la informacion
         en una lista.
@@ -150,27 +121,21 @@ class DocumentIngestionPipeline:
 
         return self.documents
     
-
-
     def save_to_json(self, output_file="documents_text.json"):
-
         """
         La funcion guarda los documentos procesados en un archivo json.
 
         Args:
             output_file (str): Nombre del archivo de salida.
         """
-
         with open(output_file, "w", encoding="utf-8") as f:
             json.dump(self.documents, f, ensure_ascii=False, indent=4)
 
         print(f"Documentos guardados en {output_file}")
 
     def load_pipeline(self):
-
         """
         Ejecuta todo el pipeline de carga, conversión y guardado de documentos.
         """
-        
         self.load_documents()
         self.save_to_json()

@@ -114,8 +114,13 @@ pip install -r requirements.txt
 
 ```plaintext
 ├── chunking/                # Módulo para dividir los documentos en chunks semánticos
+├── embedding/               # Módulo para generar embeddings densos
+├── evaluacion/              # Módulo para evaluar el sistema RAG
 ├── loaders/                 # Módulo para la carga y preprocesamiento de documentos
-├── retrievers/              # Módulo para realizar búsquedas semánticas
+├── Query_Rewriting/         # Módulo para la reformulacion de la consulta del usuario
+├── reranker/                # Módulo para aplicar técnica de reranking de los chunks recuperados
+├── retrievers/              # Módulo para realizar el retriever de los chunks del VS
+├── summarizer/              # Módulo para la generacion de un resumen de la busqueda
 ├── vector_store_client/     # Cliente para interactuar con la base de datos Qdrant
 ├── main.py                  # Script principal para la configuración inicial
 ├── main_app.py              # Aplicación Streamlit
@@ -129,10 +134,11 @@ pip install -r requirements.txt
 
 ### 1. Primera Ejecución
 
-1. Corre el archivo `main.py` para:
+1. Corre el archivo `main.py` la seccion de la "Etapa 1" para:
    - Procesar los documentos en formato PDF/doc/txt.
    - Generar embeddings de los chunks semánticos utilizando `sentence-transformers`.
-   - Crear y llenar la base de datos vectorial en Qdrant.
+   - Crear y generar la base de datos vectorial en Qdrant.
+- 
 
    Comando para ejecutar:
 
@@ -140,7 +146,9 @@ pip install -r requirements.txt
    python main.py
    ```
 
-2. Una vez finalizado, el sistema habrá preparado todo lo necesario para la búsqueda semántica.
+1. Una vez finalizado, el sistema habrá preparado todo lo necesario para la búsqueda semántica.
+2. Se puede ejecutar el retriever con las funciones avanzadas si se descomenta la "Etapa 2" del codigo.
+3. Actualizar con consultas diferentes/actualizadas/adicionales el archivo ground_thruths.json
 
 ---
 
@@ -154,13 +162,12 @@ La aplicación Streamlit permite realizar consultas y obtener resultados de bús
    streamlit run main_app.py
    ```
 
-2. Introduce una consulta en la barra de búsqueda, por ejemplo:
+2. Se genera de forma previa el archivo ground_thuths.json con las consultas y respuestas esperadas.
+   1. Por temas de tiempo no se alcanzo a integrar esta etapa de generacion de consultas y groundthruths dentro del codigo. 
 
-   ```
-   ¿Cómo se muestra el etiquetado en un envase?
-   ```
+3. Introduce una consulta en la barra de búsqueda de las almacenadas en ground_thruths.
 
-3. Se muestran el ranking de los resultados de la búsqueda semantica dado el texto relevante, la puntuación de similitud y los metadatos asociados.
+4. Se muestra en pantalla y almacena el resultado de la comparacion de la busqueda simple y avanzada del RAG.
 
 ---
 
@@ -173,6 +180,7 @@ El archivo `main_app.py` permite modificar los siguientes parámetros:
 - Modelo utilizado para embeddings: `sentence-transformers/all-mpnet-base-v2`.
 - Nombre de la colección en Qdrant: `semantic_chunks`.
 - Distancia métrica: `COSINE`.
+- LLM: Ollama - llama3.2
 
 * OBS: Los parametros antes mencionados son los que se utilizaron
 
